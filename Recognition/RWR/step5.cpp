@@ -22,11 +22,11 @@ int topks[5] = {5,10,15,20,25};
 
 int MAX_INDEX = 9;
 
-char filename[10][30] = {"result_u1_0.1.txt","result_u1_0.2.txt","result_u1_0.3.txt","result_u1_0.4.txt",
-						"result_u1_0.5.txt","result_u1_0.6.txt","result_u1_0.7.txt","result_u1_0.8.txt","result_u1_0.9.txt"};
+char filename[10][30] = {"result_u4_0.1.txt","result_u4_0.2.txt","result_u4_0.3.txt","result_u4_0.4.txt",
+						"result_u4_0.5.txt","result_u4_0.6.txt","result_u4_0.7.txt","result_u4_0.8.txt","result_u4_0.9.txt"};
 
-char o_filename[10][30] = {"test_u1_0.1.txt","test_u1_0.2.txt","test_u1_0.3.txt","test_u1_0.4.txt",
-						"test_u1_0.5.txt","test_u1_0.6.txt","test_u1_0.7.txt","test_u1_0.8.txt","test_u1_0.9.txt"};
+char o_filename[10][30] = {"test_u4_0.1.txt","test_u4_0.2.txt","test_u4_0.3.txt","test_u4_0.4.txt",
+						"test_u4_0.5.txt","test_u4_0.6.txt","test_u4_0.7.txt","test_u4_0.8.txt","test_u4_0.9.txt"};
 
 
 struct Score{
@@ -41,7 +41,7 @@ map< int, vector<Score> > correct_user_item;
 void ComputeMRR(map< int, vector<Score> > recommend_user_item,FILE* fp)//, StreamWriter output)
 {
 	double mrr = 0;
-	for(map<int, vector<Score> >::iterator it = recommend_user_item.begin(); it != recommend_user_item.end(); it++)
+	for(map<int, vector<Score> >::iterator it = correct_user_item.begin(); it != correct_user_item.end(); it++)
 	//for each(int user in correct_user_item._Key)
 	{
 		int user = it->first;
@@ -73,7 +73,7 @@ void ComputeMRR(map< int, vector<Score> > recommend_user_item,FILE* fp)//, Strea
 void ComputeNDCG(map< int, vector<Score> > recommend_user_item,FILE *fp)
 {
 	double ndcg[5] = {0,};
-	for(map<int, vector<Score> >::iterator it = recommend_user_item.begin(); it != recommend_user_item.end(); it++)
+	for(map<int, vector<Score> >::iterator it = correct_user_item.begin(); it != correct_user_item.end(); it++)
 	{
 		int user = it->first;
 		int c_size = correct_user_item[user].size();
@@ -135,7 +135,7 @@ void ComputeAccuary(map< int, vector<Score> > recommend_user_item, FILE* fp)
 		hit[i] = 0.0;
 	}
 
-	for(map<int, vector<Score> >::iterator it = recommend_user_item.begin(); it != recommend_user_item.end(); it++)
+	for(map<int, vector<Score> >::iterator it = correct_user_item.begin(); it != correct_user_item.end(); it++)
 	{
 		int rank = 0;
 		int user = it->first;
@@ -206,7 +206,7 @@ int main(void){
 		FILE *f;
 		char buf[512];
 
-		f = fopen("u1.test","rt");
+		f = fopen("u4.test","rt");
 		if(f == NULL){
 			cout << "file open error" << endl;
 			return 0;
