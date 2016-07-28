@@ -33,8 +33,7 @@ parameter는 다음과 같다.
 
 # step 3: step3.cpp
 
-Graphchi에 User-Oriented.base 와 OCCF.test를 넣어서 나온 output file인 u4_OCCF.test.predict와 처음 우리에게 주어진 u4.base를 갖고 interesting item만으로 RWR 결과를 출력하고, uninteresting item만으로 RWR 결과를 출력한다. 
-uninteresting item은 10% 단위로 구분해서 RWR 결과를 출력한다.
+Graphchi에 User-Oriented.base 와 OCCF.test를 넣어서 나온 output file인 u4_OCCF.test.predict와 처음 우리에게 주어진 u4.base를 갖고 interesting item과 uninteresting item을 구한다. uninteresting item은 10%단위로 10%, 20%, 30% ... 90% 까지 구한다.
 
 parameter는 다음과 같다.
 
@@ -48,7 +47,7 @@ output
 
 # step 4: step4.cpp
 
-Graphchi에 User-Oriented.base 와 OCCF.test를 넣어서 나온 output file인 u4_OCCF.test.predict와 처음 우리에게 주어진 u4.base를 갖고 interesting item만으로 RWR 결과를 출력하고, uninteresting item만으로 RWR 결과를 출력한다. 
+interesting item만으로 RWR 결과를 출력하고, uninteresting item만으로 RWR 결과를 출력한다. 
 uninteresting item은 10% 단위로 구분해서 RWR 결과를 출력한다.
 
 parameter는 다음과 같다.
